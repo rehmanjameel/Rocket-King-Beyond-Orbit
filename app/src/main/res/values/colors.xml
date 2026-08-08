@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <!-- Background -->
+    <color name="space_background">#050816</color>
+    <color name="space_surface">#111B33</color>
+    <color name="space_surface_dark">#091223</color>
+
+    <!-- Primary -->
+    <color name="primary_blue">#2D6BFF</color>
+    <color name="primary_blue_dark">#1A4ED8</color>
+
+    <!-- Accent -->
+    <color name="accent_cyan">#00D9FF</color>
+    <color name="accent_green">#4DFF91</color>
+
+    <!-- Warning -->
+    <color name="warning_orange">#FFB100</color>
+
+    <!-- Error -->
+    <color name="danger_red">#FF4D4D</color>
+
+    <!-- Text -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_secondary">#B8C4D9</color>
+
+    <!-- Misc -->
+    <color name="divider">#25314D</color>
+    <color name="card_stroke">#324566</color>
+
+    <color name="transparent">#00000000</color>
+
+
+</resources>

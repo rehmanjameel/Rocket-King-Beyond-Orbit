@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_space">
+
+    <!-- ====================================================== -->
+    <!--                 LEFT PANEL                             -->
+    <!-- ====================================================== -->
+
+    <LinearLayout
+        android:id="@+id/layoutBrand"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/layoutMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Rocket Image -->
+
+        <ImageView
+            android:id="@+id/imgRocket"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="start"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher"/>
+
+        <!-- Game Name -->
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Rocket King"
+            android:textColor="@color/text_white"
+            android:textSize="34sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beyond Orbit"
+            android:textColor="@color/accent_cyan"
+            android:textSize="18sp"/>
+
+        <!-- ====================================================== -->
+        <!--                 PLAYER STATS                           -->
+        <!-- ====================================================== -->
+
+        <LinearLayout
+            android:id="@+id/layoutStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/txtBestScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Score : 0"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/txtBestDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Distance : 0 m"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ====================================================== -->
+    <!--                 RIGHT MENU                             -->
+    <!-- ====================================================== -->
+
+    <LinearLayout
+        android:id="@+id/layoutMenu"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPlay"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_primary"
+            android:text="PLAY"
+            android:textAllCaps="false"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="18dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_secondary"
+            android:text="SETTINGS"
+            android:textAllCaps="false"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="18dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_button_secondary"
+            android:text="EXIT"
+            android:textAllCaps="false"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
+
+    <!-- ====================================================== -->
+    <!--                 VERSION                               -->
+    <!-- ====================================================== -->
+
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Version 1.0"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
