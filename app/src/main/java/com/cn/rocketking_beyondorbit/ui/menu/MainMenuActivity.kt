@@ -10,6 +10,7 @@ import com.cn.rocketking_beyondorbit.R
 import com.cn.rocketking_beyondorbit.databinding.ActivityMainMenuBinding
 import com.cn.rocketking_beyondorbit.ui.game.GameActivity
 import com.cn.rocketking_beyondorbit.ui.settings.SettingsActivity
+import com.cn.rocketking_beyondorbit.utils.AppPreferences
 import kotlin.jvm.java
 
 class MainMenuActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainMenuActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         binding.btnPlay.setOnClickListener {
 
@@ -54,5 +56,24 @@ class MainMenuActivity : AppCompatActivity() {
             finish()
 
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val bestScore =
+            AppPreferences.getInt(
+                AppPreferences.KEY_BEST_SCORE
+            )
+
+        val bestDistance =
+            AppPreferences.getInt(
+                AppPreferences.KEY_BEST_DISTANCE
+            )
+
+        binding.txtBestScore.text =
+            bestScore.toString()
+
+        binding.txtBestDistance.text =
+            "$bestDistance m"
     }
 }

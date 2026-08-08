@@ -5,6 +5,7 @@ import com.cn.rocketking_beyondorbit.game.objects.Rocket
 import com.cn.rocketking_beyondorbit.game.renderer.GameView
 import com.cn.rocketking_beyondorbit.utils.Constants
 import com.cn.rocketking_beyondorbit.game.sound.GameSoundManager
+import com.cn.rocketking_beyondorbit.utils.AppPreferences
 
 class GameEngine(
     private val gameView: GameView,
@@ -223,6 +224,8 @@ class GameEngine(
             return
         }
 
+        saveGameResult()
+
         gameState = GameState.GAME_OVER
 
         soundManager.playGameOver()
@@ -306,5 +309,34 @@ class GameEngine(
             width,
             height
         )
+    }
+
+    private fun saveGameResult() {
+
+        val bestScore =
+            AppPreferences.getInt(
+                AppPreferences.KEY_BEST_SCORE
+            )
+
+        val bestDistance =
+            AppPreferences.getInt(
+                AppPreferences.KEY_BEST_DISTANCE
+            )
+
+        if (score > bestScore) {
+
+            AppPreferences.saveInt(
+                AppPreferences.KEY_BEST_SCORE,
+                score
+            )
+        }
+
+        if (distance > bestDistance) {
+
+            AppPreferences.saveInt(
+                AppPreferences.KEY_BEST_DISTANCE,
+                distance
+            )
+        }
     }
 }
