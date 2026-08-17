@@ -17,6 +17,8 @@ class GameEngine(
         private set
     var distance = 0
         private set
+    @Volatile
+    private var restartRequested = false
     private val soundManager =
         GameSoundManager(gameView.context)
     private var distanceAccumulator = 0f
@@ -59,6 +61,13 @@ class GameEngine(
 
     fun update() {
 
+        if (restartRequested) {
+
+            restartRequested = false
+
+            startGame()
+        }
+
         if (gameState != GameState.PLAYING) {
             return
         }
@@ -69,7 +78,6 @@ class GameEngine(
 
         rocket.update()
 
-
         //======================================================
         // Distance
         //======================================================
@@ -78,7 +86,6 @@ class GameEngine(
 
         distance = distanceAccumulator.toInt()
 
-
         //======================================================
         // Obstacles + Score
         //======================================================
@@ -86,11 +93,12 @@ class GameEngine(
         obstacleManager.update(
             rocketX = rocket.x,
             onScore = {
+
                 score++
+
                 soundManager.playScore()
             }
         )
-
 
         //======================================================
         // Score Update
@@ -106,7 +114,6 @@ class GameEngine(
             }
         }
 
-
         //======================================================
         // Distance Update
         //======================================================
@@ -118,7 +125,6 @@ class GameEngine(
             )
         }
 
-
         //======================================================
         // Collision
         //======================================================
@@ -128,12 +134,11 @@ class GameEngine(
                 rocket.bounds
             )
         ) {
-            soundManager.playCollision()
+
             gameOver()
 
             return
         }
-
 
         //======================================================
         // Screen Boundary
@@ -180,9 +185,15 @@ class GameEngine(
             gameView.onScoreChanged?.invoke(0)
 
             gameView.onDistanceChanged?.invoke(0)
+
+            gameView.notifyGameStarted()
         }
     }
 
+    fun requestRestart() {
+
+        restartRequested = true
+    }
     //==========================================================
     // Pause
     //==========================================================
@@ -271,29 +282,32 @@ class GameEngine(
                 startGame()
 
                 rocket.thrust()
+
                 soundManager.playRocketThrust()
             }
 
             GameState.PLAYING -> {
 
                 rocket.thrust()
+
                 soundManager.playRocketThrust()
             }
 
             GameState.GAME_OVER -> {
 
-                startGame()
-
-                rocket.thrust()
-                soundManager.playRocketThrust()
+                // Do nothing.
+                // GameOverDialog handles Play Again / Main Menu.
             }
 
             GameState.PAUSED -> {
 
-                // Pause dialog handles resume.
+                // PauseDialog handles Resume / Restart / Main Menu.
             }
 
-            else -> {}
+            GameState.LOADING -> {
+
+                // Game is not ready for input.
+            }
         }
     }
 

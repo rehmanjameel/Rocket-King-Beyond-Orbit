@@ -121,7 +121,12 @@ class GameActivity : AppCompatActivity() {
             }
         }
 
+        binding.gameView.onGameStarted = {
 
+            // Game has actually entered PLAYING.
+            // Now the Game Over dialog can be requested
+            // again when the new game eventually ends.
+        }
         //======================================================
         // Pause Button
         //======================================================

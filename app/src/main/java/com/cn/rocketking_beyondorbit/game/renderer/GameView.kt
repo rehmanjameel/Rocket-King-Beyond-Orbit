@@ -68,7 +68,7 @@ class GameView @JvmOverloads constructor(
     //==========================================================
 
     var onPauseRequested: (() -> Unit)? = null
-
+    var onGameStarted: (() -> Unit)? = null
     var onScoreChanged: ((Int) -> Unit)? = null
 
     var onDistanceChanged: ((Int) -> Unit)? = null
@@ -348,12 +348,15 @@ class GameView @JvmOverloads constructor(
 
         if (::gameEngine.isInitialized) {
 
-            gameOverDialogRequested = false
+            gameOverDialogRequested = true
 
-            gameEngine.startGame()
+            gameEngine.requestRestart()
         }
     }
+    fun notifyGameStarted() {
 
+        gameOverDialogRequested = false
+    }
     //==========================================================
     // Score
     //==========================================================

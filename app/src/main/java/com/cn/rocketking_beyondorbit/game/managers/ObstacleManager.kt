@@ -185,6 +185,7 @@ class ObstacleManager(
     // Update
     //==========================================================
 
+    @Synchronized
     fun update(
         rocketX: Float,
         onScore: () -> Unit
