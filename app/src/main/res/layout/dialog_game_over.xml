@@ -28,6 +28,7 @@
             android:gravity="center"
             android:text="MISSION FAILED"
             android:textColor="@color/danger_red"
+            android:fontFamily="@font/orbitron"
             android:textSize="30sp"
             android:textStyle="bold"/>
 
@@ -53,6 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Score"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:textColor="@color/text_secondary"/>
 
                 <TextView
@@ -60,6 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:textColor="@color/text_white"
                     android:textSize="26sp"
                     android:textStyle="bold"/>
@@ -76,6 +79,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:text="Best"
                     android:textColor="@color/text_secondary"/>
 
@@ -85,6 +89,7 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textColor="@color/accent_cyan"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:textSize="26sp"
                     android:textStyle="bold"/>
 
@@ -101,6 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Distance"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:textColor="@color/text_secondary"/>
 
                 <TextView
@@ -109,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:text="0 m"
                     android:textColor="@color/warning_orange"
+                    android:fontFamily="@font/rajdhani_bold"
                     android:textSize="26sp"
                     android:textStyle="bold"/>
 
@@ -128,6 +135,8 @@
             android:background="@drawable/bg_button_primary"
             android:text="Play Again"
             android:textAllCaps="false"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_white"/>
 
         <com.google.android.material.button.MaterialButton
@@ -137,7 +146,9 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_button_secondary"
             android:text="Main Menu"
+            android:fontFamily="@font/orbitron"
             android:textAllCaps="false"
+            app:backgroundTint="@null"
             android:textColor="@color/text_white"/>
 
     </LinearLayout>

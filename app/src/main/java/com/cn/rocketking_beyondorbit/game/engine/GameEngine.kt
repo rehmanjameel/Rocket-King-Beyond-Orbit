@@ -6,6 +6,7 @@ import com.cn.rocketking_beyondorbit.game.renderer.GameView
 import com.cn.rocketking_beyondorbit.utils.Constants
 import com.cn.rocketking_beyondorbit.game.sound.GameSoundManager
 import com.cn.rocketking_beyondorbit.utils.AppPreferences
+import com.cn.rocketking_beyondorbit.utils.GameVibration
 
 class GameEngine(
     private val gameView: GameView,
@@ -229,6 +230,11 @@ class GameEngine(
         gameState = GameState.GAME_OVER
 
         soundManager.playGameOver()
+
+        GameVibration.vibrate(
+            gameView.context,
+            150L
+        )
     }
 
     //==========================================================

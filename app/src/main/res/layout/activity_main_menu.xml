@@ -17,6 +17,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
+        android:paddingHorizontal="10dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +34,7 @@
             android:layout_gravity="start"
             android:contentDescription="@string/app_name"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/logo_resized"/>
 
         <!-- Game Name -->
 
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Rocket King"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_white"
             android:textSize="34sp"
             android:textStyle="bold"/>
@@ -52,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Beyond Orbit"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/accent_cyan"
             android:textSize="18sp"/>
 
@@ -73,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Best Score : 0"
+                android:fontFamily="@font/orbitron"
                 android:textColor="@color/text_secondary"
                 android:textSize="16sp"/>
 
@@ -81,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Best Distance : 0 m"
+                android:fontFamily="@font/orbitron"
                 android:textColor="@color/text_secondary"
                 android:textSize="16sp"/>
 
@@ -109,6 +114,8 @@
             android:background="@drawable/bg_button_primary"
             android:text="PLAY"
             android:textAllCaps="false"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_white"
             android:textSize="18sp"/>
 
@@ -123,6 +130,8 @@
             android:background="@drawable/bg_button_secondary"
             android:text="SETTINGS"
             android:textAllCaps="false"
+            app:backgroundTint="@null"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_white"
             android:textSize="18sp"/>
 
@@ -136,7 +145,9 @@
             android:layout_height="56dp"
             android:background="@drawable/bg_button_secondary"
             android:text="EXIT"
+            app:backgroundTint="@null"
             android:textAllCaps="false"
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_white"
             android:textSize="18sp"/>
 
@@ -155,6 +166,7 @@
         android:layout_margin="20dp"
         android:text="Version 1.0"
         android:textColor="@color/text_secondary"
+        android:fontFamily="@font/rajdhani_bold"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

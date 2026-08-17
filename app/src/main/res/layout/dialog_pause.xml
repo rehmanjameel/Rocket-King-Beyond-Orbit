@@ -29,6 +29,7 @@
             android:text="GAME PAUSED"
             android:textColor="@color/text_white"
             android:textSize="28sp"
+            android:fontFamily="@font/orbitron"
             android:textStyle="bold"/>
 
         <TextView
@@ -37,6 +38,7 @@
             android:layout_marginTop="6dp"
             android:gravity="center"
             android:text="Take a break and continue your mission."
+            android:fontFamily="@font/orbitron"
             android:textColor="@color/text_secondary"
             android:textSize="15sp"/>
 
@@ -51,6 +53,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_button_primary"
             android:text="Resume"
+            android:fontFamily="@font/orbitron"
             android:textAllCaps="false"
             android:textColor="@color/text_white"/>
 
@@ -60,6 +63,7 @@
             android:layout_height="54dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_button_secondary"
+            android:fontFamily="@font/orbitron"
             android:text="Restart"
             android:textAllCaps="false"
             android:textColor="@color/text_white"/>
@@ -71,6 +75,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_button_secondary"
             android:text="Main Menu"
+            android:fontFamily="@font/orbitron"
             android:textAllCaps="false"
             android:textColor="@color/text_white"/>
 

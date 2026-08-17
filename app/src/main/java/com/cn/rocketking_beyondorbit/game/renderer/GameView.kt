@@ -9,6 +9,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import androidx.core.content.res.ResourcesCompat
+import com.cn.rocketking_beyondorbit.R
 import com.cn.rocketking_beyondorbit.game.background.Background
 import com.cn.rocketking_beyondorbit.game.engine.GameEngine
 import com.cn.rocketking_beyondorbit.game.engine.GameLoop
@@ -19,7 +21,7 @@ class GameView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : SurfaceView(context, attrs), SurfaceHolder.Callback {
-
+    private var gameOverDialogRequested = false
     //==========================================================
     // Game Engine
     //==========================================================
@@ -48,9 +50,9 @@ class GameView @JvmOverloads constructor(
 
             textAlign = Paint.Align.CENTER
 
-            typeface = Typeface.create(
-                Typeface.DEFAULT,
-                Typeface.BOLD
+            typeface = ResourcesCompat.getFont(
+                context,
+                R.font.orbitron
             )
 
             setShadowLayer(
@@ -70,7 +72,7 @@ class GameView @JvmOverloads constructor(
     var onScoreChanged: ((Int) -> Unit)? = null
 
     var onDistanceChanged: ((Int) -> Unit)? = null
-
+    var onGameOverRequested: ((Int, Int, Int) -> Unit)? = null
     //==========================================================
     // Initialization
     //==========================================================
@@ -204,9 +206,27 @@ class GameView @JvmOverloads constructor(
             // Game Over
             //==================================================
 
-            if (engine.gameState == GameState.GAME_OVER) {
+            if (
+                engine.gameState == GameState.GAME_OVER &&
+                !gameOverDialogRequested
+            ) {
 
-                drawGameOverMessage(canvas)
+                gameOverDialogRequested = true
+
+                val bestScore =
+                    com.cn.rocketking_beyondorbit.utils.AppPreferences
+                        .getInt(
+                            com.cn.rocketking_beyondorbit.utils.AppPreferences.KEY_BEST_SCORE
+                        )
+
+                post {
+
+                    onGameOverRequested?.invoke(
+                        engine.score,
+                        bestScore,
+                        engine.distance
+                    )
+                }
             }
 
         } finally {
@@ -327,6 +347,8 @@ class GameView @JvmOverloads constructor(
     fun restartGame() {
 
         if (::gameEngine.isInitialized) {
+
+            gameOverDialogRequested = false
 
             gameEngine.startGame()
         }

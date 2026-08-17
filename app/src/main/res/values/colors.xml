@@ -33,5 +33,44 @@
 
     <color name="transparent">#00000000</color>
 
+    <!-- ====================================================== -->
+    <!-- GAME / NEON COLORS                                    -->
+    <!-- ====================================================== -->
 
+    <!-- Bright blue for primary actions -->
+    <color name="game_blue">#3D7BFF</color>
+    <color name="game_yellow">#FC9F26</color>
+    <color name="game_blue_light">#5B9CFF</color>
+    <color name="game_blue_dark">#1746C7</color>
+    <color name="game_yellow_dark">#EF5A04</color>
+
+    <!-- Neon cyan -->
+    <color name="game_cyan">#00E5FF</color>
+    <color name="game_cyan_dark">#0099B8</color>
+
+    <!-- Neon green -->
+    <color name="game_green">#50FF9A</color>
+
+    <!-- Space purple -->
+    <color name="space_purple">#7B61FF</color>
+    <color name="space_purple_dark">#4933A8</color>
+
+    <!-- Orange for score / achievement -->
+    <color name="game_orange">#FFB52E</color>
+
+    <!-- Game over -->
+    <color name="game_red">#FF4965</color>
+    <color name="game_red_dark">#C72F48</color>
+
+    <!-- HUD translucent surfaces -->
+    <color name="hud_surface">#CC111B30</color>
+    <color name="hud_surface_light">#DD182641</color>
+
+    <!-- Glow / transparent colors -->
+    <color name="cyan_glow">#6600E5FF</color>
+    <color name="blue_glow">#663D7BFF</color>
+    <color name="green_glow">#6650FF9A</color>
+
+    <!-- Disabled -->
+    <color name="text_disabled">#66788AA5</color>
 </resources>
