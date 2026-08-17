@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.cn.rocketking_beyondorbit.R
 import com.cn.rocketking_beyondorbit.databinding.ActivityGameBinding
 import com.cn.rocketking_beyondorbit.ui.pause.PauseDialog
-
+import com.cn.rocketking_beyondorbit.ui.gameover.GameOverDialog
 class GameActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGameBinding
@@ -87,6 +87,37 @@ class GameActivity : AppCompatActivity() {
 
                 binding.txtDistance.text =
                     "$distance m"
+            }
+        }
+
+        binding.gameView.onGameOverRequested = {
+                score,
+                bestScore,
+                distance ->
+
+            runOnUiThread {
+
+                GameOverDialog(
+                    this,
+                    score = score,
+                    bestScore = bestScore,
+                    distance = distance,
+
+                    onPlayAgain = {
+
+                        binding.gameView.restartGame()
+
+                        binding.txtScore.text = "0"
+
+                        binding.txtDistance.text = "0 m"
+                    },
+
+                    onMainMenu = {
+
+                        finish()
+                    }
+
+                ).show()
             }
         }
 
